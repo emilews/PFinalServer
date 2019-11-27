@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e217d4ba-3839-4af6-9980-3b57d67c8570" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/connect/Connect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/connect/Connect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/mediator/Mediator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/mediator/Mediator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +92,8 @@
       <updated>1574140825461</updated>
       <workItem from="1574140828261" duration="599000" />
       <workItem from="1574561843172" duration="3538000" />
-      <workItem from="1574645386334" duration="8734000" />
+      <workItem from="1574645386334" duration="8838000" />
+      <workItem from="1574827694781" duration="5551000" />
     </task>
     <servers />
   </component>
@@ -102,7 +105,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

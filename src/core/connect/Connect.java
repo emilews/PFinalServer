@@ -48,6 +48,7 @@ public class Connect extends Thread{
             System.out.println("Num: " + clientesConectados.size());
             while (done) {
                 String mensaje = buffEntrada.readUTF();
+                System.out.println(mensaje);
                 Pattern regex = Pattern.compile("[^\\s\"']+|\"([^\"]*)\"|'([^']*)'");
                 Matcher regexMatcher = regex.matcher(mensaje);
                 ArrayList<String> args = new ArrayList<String>();
@@ -80,9 +81,7 @@ public class Connect extends Thread{
                                 }
                             } else {
                                 for (int i = 0; i < clientesConectados.size(); i++) {
-                                    if (i != clientesConectados.indexOf(this)) {
                                         clientesConectados.get(i).EnviarMensaje("[Broadcast]<"+this.username+"> " + messageBody);
-                                    }
                                 }
                             }
                         }
