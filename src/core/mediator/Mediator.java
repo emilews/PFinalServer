@@ -36,13 +36,9 @@ public class Mediator {
                 System.out.println(userdata);
                 int result = -50;
                 if(userdata.contains("NewUser:>")){
-                    String[] s1 = userdata.split(":");
+                    String[] s1 = userdata.split(":>");
                     String[] s = s1[1].split(",");
-                    int tmpresult = db.signUp(s[0],s[1]);
-                    if(tmpresult == 4){
-                        buffSalida.writeUTF("Registrado");
-                        buffSalida.flush();
-                    }
+                    result = db.signUp(s[0],s[1]);
                 }
                 if (userdata.contains("LogIn:>")){
                     String[] s1 = userdata.split(":>");
@@ -56,7 +52,6 @@ public class Mediator {
                         buffSalida.flush();
                         break;
                     case 1:
-                        System.out.println("found");
                         Connect conexion = new Connect(socket, buffEntrada, buffSalida,
                                 userdata.split(":>")[1].split(",")[0]);
                         conexion.start();
@@ -70,10 +65,6 @@ public class Mediator {
                         break;
                     case 3:
                         buffSalida.writeUTF("Ya existe un usuario con ese nombre.");
-                        buffSalida.flush();
-                        break;
-                    case 4:
-                        buffSalida.writeUTF("Registro exitoso.");
                         buffSalida.flush();
                         break;
                 }

@@ -81,7 +81,9 @@ public class Connect extends Thread{
                                 }
                             } else {
                                 for (int i = 0; i < clientesConectados.size(); i++) {
+                                    if (i != clientesConectados.indexOf(this)) {
                                         clientesConectados.get(i).EnviarMensaje("[Broadcast]<"+this.username+"> " + messageBody);
+                                    }
                                 }
                             }
                         }
@@ -190,9 +192,29 @@ public class Connect extends Thread{
                     CommandLine commandLine = comandos.parse(args.toArray(new String[args.size()]));
                     if (commandLine != null) {
                         if (commandLine.hasOption("l")) {
-                            for(Topic t : topics){
-                                EnviarMensaje(t.getTopicTitle());
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("Topics:>");
+                            for(int i = 0; i < topics.size(); i++){
+                                if(i == topics.size()-1){
+                                    sb.append(topics.get(i).getTopicTitle());
+                                }else{
+                                    sb.append(topics.get(i).getTopicTitle());
+                                    sb.append(",");
+                                }
                             }
+                            EnviarMensaje(sb.toString());
+                        }
+                    }
+                }
+                if(mensaje.equals("exit")){
+                    for(int i = 0; i <= clientesConectados.size(); i++){
+                        if(username.equals(clientesConectados.get(i).username)){
+                            clientesConectados.remove(i);
+                        }
+                    }
+                    for(int i = 0; i < topics.size(); i++){
+                        if(username.equals(topics.get(i).getTopicTitle())){
+                            topics.remove(i);
                         }
                     }
                 }
@@ -204,6 +226,7 @@ public class Connect extends Thread{
     public void EnviarMensaje(String mensaje) {
         try {
             buffSalida.writeUTF(mensaje);
+            buffSalida.flush();
         } catch (Exception e) {
         }
     }

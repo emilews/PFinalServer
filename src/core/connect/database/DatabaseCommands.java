@@ -80,44 +80,12 @@ public class DatabaseCommands {
                 }
                 try {
                     psn = connection.prepareStatement(statementNew);
-                    psn.executeQuery();
+                    psn.executeUpdate();
                 } catch (SQLException s) {
                     s.printStackTrace();
                 }
-                return confirmNewUser(name,pswd);
+                return 1;
             }
-        }
-        return -1;
-    }
-    private synchronized int confirmNewUser(String name, String pswd) {
-        String statement = "SELECT * FROM users WHERE uname = '" + name + "';";
-        PreparedStatement ps = null;
-        ResultSet set = null;
-        try {
-            ps = connection.prepareStatement(statement);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return -1;
-        }
-        if (ps != null) {
-            try {
-                set = ps.executeQuery();
-            } catch (SQLException e) {
-                e.printStackTrace();
-                return -1;
-            }
-            if (set != null) {
-                try {
-                    while (set.next()) {
-                        if (set.getString(2).equals(pswd)) {
-                            return 4;
-                        }
-                    }
-                } catch (SQLException s) {
-                    return -1;
-                }
-            }
-            return 0;
         }
         return -1;
     }
