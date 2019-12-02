@@ -8,6 +8,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 import java.util.regex.Matcher;
@@ -48,7 +49,7 @@ public class Connect extends Thread{
             System.out.println("Num: " + clientesConectados.size());
             while (done) {
                 String mensaje = buffEntrada.readUTF();
-                System.out.println(mensaje);
+                System.out.println("Mensaje de "+username+": "+mensaje);
                 Pattern regex = Pattern.compile("[^\\s\"']+|\"([^\"]*)\"|'([^']*)'");
                 Matcher regexMatcher = regex.matcher(mensaje);
                 ArrayList<String> args = new ArrayList<String>();
@@ -195,13 +196,67 @@ public class Connect extends Thread{
                             StringBuilder sb = new StringBuilder();
                             sb.append("Topics:>");
                             for(int i = 0; i < topics.size(); i++){
-                                if(i == topics.size()-1){
-                                    sb.append(topics.get(i).getTopicTitle());
+                                boolean t = true;
+                                for(int j = 0; j < clientesConectados.size(); j++){
+                                    if(topics.get(i).getTopicTitle().equals(clientesConectados.get(j).username)){
+                                        t = false;
+                                        break;
+                                    }
+                                }
+                                if(t){
+                                    if(i == topics.size()-1){
+                                        sb.append(topics.get(i).getTopicTitle());
+                                    }else{
+                                        sb.append(topics.get(i).getTopicTitle());
+                                        sb.append(",");
+                                    }
+                                }
+                            }
+                            EnviarMensaje(sb.toString());
+                        }
+                    }
+                }
+                if (args.get(0).equals("user")) {
+                    CommandLine commandLine = comandos.parse(args.toArray(new String[args.size()]));
+                    if (commandLine != null) {
+                        if (commandLine.hasOption("l")) {
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("Users:>");
+                            for(int i = 0; i < clientesConectados.size(); i++){
+                                if(i == clientesConectados.size()-1){
+                                    sb.append(clientesConectados.get(i).username);
                                 }else{
-                                    sb.append(topics.get(i).getTopicTitle());
+                                    sb.append(clientesConectados.get(i).username);
                                     sb.append(",");
                                 }
                             }
+                            EnviarMensaje(sb.toString());
+                        }
+                    }
+                }
+                if (args.get(0).equals("mio")) {
+                    CommandLine commandLine = comandos.parse(args.toArray(new String[args.size()]));
+                    if (commandLine != null) {
+                        if (commandLine.hasOption("l")) {
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("Mios:>");
+                            for(int i = 0; i < topics.size(); i++){
+                                if(topics.get(i).getTopicTitle().equals("Broadcast")){
+                                    continue;
+                                }
+                                Vector<Connect> u = topics.get(i).getUserList();
+                                for(int j = 0; j < u.size(); j++){
+                                    if(username.equals(u.get(j).username)){
+                                        if(i == topics.size()-1){
+                                            sb.append(topics.get(i).getTopicTitle());
+                                        }else{
+                                            sb.append(topics.get(i).getTopicTitle());
+                                            sb.append(",");
+                                        }
+                                    }
+                                }
+                            }
+                            System.out.println(sb.toString());
                             EnviarMensaje(sb.toString());
                         }
                     }

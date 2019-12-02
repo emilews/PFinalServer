@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e217d4ba-3839-4af6-9980-3b57d67c8570" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PFinalServer/core/commands/Commands.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PFinalServer/core/commands/Commands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PFinalServer/core/connect/Connect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PFinalServer/core/connect/Connect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/commands/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/commands/Commands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/connect/Connect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/connect/Connect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/connect/database/DatabaseCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/connect/database/DatabaseCommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/mediator/Mediator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/mediator/Mediator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +30,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PFinal - copia" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PFinal - copia - copia" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -96,6 +97,9 @@
       <workItem from="1574645386334" duration="8838000" />
       <workItem from="1574827694781" duration="5551000" />
       <workItem from="1574914501044" duration="9518000" />
+      <workItem from="1575103743015" duration="1433000" />
+      <workItem from="1575151517797" duration="9377000" />
+      <workItem from="1575241416745" duration="8773000" />
     </task>
     <servers />
   </component>
@@ -114,16 +118,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/core/connect/Connect.java</url>
-          <line>197</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

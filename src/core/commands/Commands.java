@@ -18,11 +18,9 @@ public class Commands {
                 .hasArg()
                 .build();
         Option option_t = Option.builder("l")
-                .desc("List all available topics")
+                .desc("List all available <Something>")
                 .argName("list")
                 .build();
-
-
         options = new Options();
         options.addOption(option_A);
         options.addOption(option_r);
